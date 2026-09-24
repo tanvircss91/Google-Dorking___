@@ -1,0 +1,770 @@
+The Ultimate Google Dorking Engine
+Built by: tanvircss91
+═══════════════════════════════════════════════════════════
+
+Target Domain: EXAMPLE.COM
+
+
+🐱 Subdomain Enumeration (60)
+------------------------------------------------------------
+site:*.Example.com
+site:*.Example.com -www
+"@Example.com" -site:www.Example.com -site:Example.com
+intitle:"index of" "parent directory" site:Example.com
+inurl:dmarc:domain=Example.com
+ext:txt Example.com (vhost OR hostname OR nameserver)
+filetype:env Example.com
+inurl:(admin | login | panel) subdomain:*.Example.com
+site:*.Example.com inurl:api
+site:Example.com inurl:staging
+site:Example.com inurl:dev
+site:Example.com inurl:test
+site:*.Example.com inurl:*.api
+site:Example.com inurl:mail
+site:Example.com inurl:ftp
+site:Example.com inurl:cdn
+site:Example.com inurl:cdn-
+allintitle:"index of/admin"
+allintitle:"index of/root"
+allintitle:restricted filetype:mail
+site:Example.com inurl:console
+site:Example.com inurl:support
+site:Example.com inurl:build
+site:Example.com inurl:app
+site:Example.com inurl:mobile
+site:Example.com inurl:app-staging
+site:Example.com inurl:api-staging
+site:Example.com inurl:beta
+site:Example.com inurl:v2
+site:Example.com inurl:v3
+site:Example.com inurl:old
+site:Example.com inurl:legacy
+site:Example.com inurl:sandbox
+site:Example.com inurl:private
+site:Example.com inurl:internal
+site:Example.com inurl:demo
+site:Example.com inurl:example
+site:Example.com inurl:temp
+site:Example.com inurl:tmp
+site:Example.com inurl:webmaster
+site:Example.com inurl:tools
+site:Example.com inurl:secure
+site:Example.com inurl:vpn
+site:Example.com inurl:gateway
+site:Example.com inurl:proxy
+site:Example.com inurl:firewall
+site:Example.com inurl:router
+site:Example.com inurl:modem
+site:Example.com inurl:switch
+site:Example.com inurl:imap
+site:Example.com inurl:pop3
+site:Example.com inurl:smtp
+site:Example.com inurl:dns
+site:Example.com inurl:ns1
+site:Example.com inurl:ns2
+site:Example.com inurl:mail
+site:Example.com inurl:web
+site:Example.com inurl:hosting
+site:Example.com inurl:server
+site:Example.com inurl:cloud
+
+📁 Directory & File Discovery (81)
+------------------------------------------------------------
+intitle:"index of" site:Example.com
+intitle:"index of" "parent directory" site:Example.com
+intitle:"index of /backup"
+intitle:"index of /admin"
+inurl:/db_backup OR inurl:/database_backup site:Example.com
+ext:sql | ext:dbf | ext:mdb | ext:ora site:Example.com
+filetype:log site:Example.com
+inurl:wp-config.php site:Example.com
+intitle:"Index of /" | "robots.txt" site:Example.com
+intitle:"index of /" | "backup" site:Example.com
+inurl:ftp site:Example.com
+cache:www.Example.com
+intitle:"index of /" | "parent directory" site:Example.com
+intitle:"index of" +downloads site:Example.com
+intitle:"index of" +uploads site:Example.com
+intitle:"index of" +backup site:Example.com
+intitle:"index of" +files site:Example.com
+intitle:"directory listing" site:Example.com
+intitle:"index of" +.htaccess site:Example.com
+intitle:"index of" +passwd site:Example.com
+intitle:"index of" +password.txt site:Example.com
+intitle:"Index of /mail" site:Example.com
+intitle:"Index of /network" site:Example.com
+intitle:"index of /private" site:Example.com
+intitle:"index of" +source site:Example.com
+intitle:"index of" +sql site:Example.com
+intitle:"index of" +git site:Example.com
+intitle:"index of" +docker site:Example.com
+intitle:"index of" +env site:Example.com
+intitle:"index of" +config site:Example.com
+intitle:"index of" +database site:Example.com
+intitle:"index of" +log site:Example.com
+intitle:"index of" +cache site:Example.com
+intitle:"index of" +temp site:Example.com
+intitle:"index of" +tmp site:Example.com
+intitle:"index of" +keys site:Example.com
+intitle:"index of" +secrets site:Example.com
+intitle:"index of" +credentials site:Example.com
+intitle:"index of" +api site:Example.com
+intitle:"index of" +build site:Example.com
+intitle:"index of" +dist site:Example.com
+intitle:"index of" +release site:Example.com
+intitle:"index of" +debug site:Example.com
+intitle:"index of" +test site:Example.com
+intitle:"index of" +staging site:Example.com
+intitle:"index of" +dev site:Example.com
+intitle:"index of" +backup site:Example.com
+"Index of .."
+intitle:"Index of" "Apache"
+intitle:"Index of" "nginx"
+intitle:"Index of" "IIS"
+intitle:"Index of" size
+intitle:"Index of" modified
+intitle:"parent directory"
+intitle:"directory listing"
+inurl:sitemap.xml site:Example.com
+inurl:robots.txt site:Example.com
+inurl:.well-known site:Example.com
+inurl:/.env site:Example.com
+inurl:/.env.local site:Example.com
+inurl:/.env.backup site:Example.com
+inurl:/.git site:Example.com
+inurl:/.svn site:Example.com
+inurl:/.hg site:Example.com
+inurl:/.bzr site:Example.com
+inurl:/vendor/composer site:Example.com
+inurl:/node_modules site:Example.com
+inurl:/bower_components site:Example.com
+inurl:/package.json site:Example.com
+inurl:/package-lock.json site:Example.com
+inurl:/Gemfile.lock site:Example.com
+inurl:/requirements.txt site:Example.com
+inurl:/Pipfile site:Example.com
+inurl:/gradle site:Example.com
+inurl:/maven site:Example.com
+inurl:/pom.xml site:Example.com
+
+🔑 Secrets & Configs (100)
+------------------------------------------------------------
+ext:env | ext:.env site:Example.com
+ext:yaml | ext:yml "database" site:Example.com
+intext:"DB_PASSWORD" site:Example.com
+intext:"AWS_ACCESS_KEY_ID" site:Example.com
+ext:xml intext:"awsaccesskey" site:Example.com
+intext:"private_key" ext:txt site:Example.com
+filetype:json "api_key" site:Example.com
+inurl:.git/config site:Example.com
+intitle:"Swagger UI" site:Example.com
+filetype:env "password" site:Example.com
+inurl:.git/HEAD site:Example.com
+ext:conf site:Example.com
+filetype:xml intext:"password" site:Example.com
+inurl:backup site:Example.com
+inurl:bak site:Example.com
+intext:"DATABASE_URL" site:Example.com
+intext:"FIREBASE_KEY" site:Example.com
+intext:"SLACK_BOT_TOKEN" site:Example.com
+intext:"api_secret" site:Example.com
+intext:"client_secret" site:Example.com
+filetype:bak site:Example.com
+ext:old site:Example.com
+ext:backup site:Example.com
+inurl:config.php site:Example.com
+inurl:settings.php site:Example.com
+inurl:database.yml site:Example.com
+inurl:.htaccess site:Example.com
+intext:"mongodb+srv" site:Example.com
+intext:"password" ext:config site:Example.com
+ext:pwd inurl:(service | authors | administrators | users)
+filetype:inc intext:mysql_connect
+ext:conf inurl:rsyncd.conf
+ext:ini eudora.ini
+ext:ini intext:env.ini
+ext:ldif ldif
+filetype:netrc password
+filetype:pass pass intext:userid
+ext:cnf inurl:_vti_pvt access.cnf
+ext:conf oekakibbs
+ext:conf slapd.conf
+intext:"secret_access_key" site:Example.com
+intext:"AWS_SECRET_ACCESS_KEY" site:Example.com
+intext:"AZURE" intext:"key" site:Example.com
+intext:"GCP" intext:"credential" site:Example.com
+intext:"CONNECTION_STRING" site:Example.com
+intext:"Server=.*Password" site:Example.com
+inurl:secrets site:Example.com
+inurl:credentials site:Example.com
+inurl:keys site:Example.com
+inurl:tokens site:Example.com
+inurl:auth site:Example.com
+filetype:properties password site:Example.com
+filetype:yml password site:Example.com
+filetype:yaml password site:Example.com
+ext:key site:Example.com
+ext:pem site:Example.com
+ext:pfx site:Example.com
+ext:p12 site:Example.com
+ext:pub site:Example.com
+ext:asc site:Example.com
+intext:"BEGIN RSA PRIVATE" site:Example.com
+intext:"BEGIN PRIVATE KEY" site:Example.com
+intext:"BEGIN EC PRIVATE" site:Example.com
+intext:"-----BEGIN" site:Example.com
+filetype:rsa site:Example.com
+filetype:dsa site:Example.com
+filetype:pub site:Example.com
+filetype:pem site:Example.com
+filetype:key site:Example.com
+filetype:pfx site:Example.com
+filetype:p12 site:Example.com
+intext:"MONGO_URI" site:Example.com
+intext:"REDIS_URL" site:Example.com
+intext:"JWT_SECRET" site:Example.com
+intext:"API_TOKEN" site:Example.com
+intext:"GITHUB_TOKEN" site:Example.com
+intext:"GITLAB_TOKEN" site:Example.com
+intext:"SLACK_WEBHOOK" site:Example.com
+intext:"STRIPE_KEY" site:Example.com
+intext:"PAYPAL_SECRET" site:Example.com
+intext:"TWILIO_AUTH" site:Example.com
+intext:"SENDGRID_API" site:Example.com
+intext:"MAILGUN_KEY" site:Example.com
+
+⚠️ Admin Panels & Logins (80)
+------------------------------------------------------------
+inurl:admin/login.php site:Example.com
+inurl:wp-login.php site:Example.com
+intitle:"admin panel" | intitle:"control panel" site:Example.com
+inurl:(admin | administrator | login) site:Example.com
+intitle:"phpMyAdmin" site:Example.com
+intitle:"Adminer" site:Example.com
+site:Example.com inurl:admin
+site:Example.com intitle:"sign in"
+site:Example.com inurl:auth
+inurl:RDWeb/Pages/en-US/login.aspx site:Example.com
+intitle:"Admin Panel" site:Example.com
+intitle:"Logon Page" site:Example.com
+inurl:/admin/ site:Example.com
+inurl:/administrator/ site:Example.com
+intitle:"Control Panel" site:Example.com
+inurl:cpanel site:Example.com
+intitle:"Dashboard" inurl:admin site:Example.com
+intitle:"User Login" site:Example.com
+inurl:login.html site:Example.com
+inurl:user_login site:Example.com
+intitle:"Admin login" site:Example.com
+intitle:"please log in" site:Example.com
+intitle:"Remote Desktop Web Connection"
+intitle:"Terminal Services Web Connection"
+intitle:"ColdFusion Administrator Login"
+intitle:"Tomcat Server Administration"
+intitle:"Apache Tomcat" site:Example.com
+intitle:"Jenkins" site:Example.com
+intitle:"GitLab" site:Example.com
+intitle:"GitHub" site:Example.com
+intitle:"Grafana" site:Example.com
+intitle:"Prometheus" site:Example.com
+intitle:"Kibana" site:Example.com
+intitle:"Splunk" site:Example.com
+intitle:"DataDog" site:Example.com
+intitle:"New Relic" site:Example.com
+intitle:"PagerDuty" site:Example.com
+intitle:"Slack" site:Example.com
+intitle:"Jira" site:Example.com
+intitle:"Confluence" site:Example.com
+intitle:"BitBucket" site:Example.com
+intitle:"Docker" site:Example.com
+intitle:"Kubernetes" site:Example.com
+intitle:"AWS" site:Example.com
+intitle:"Google Cloud" site:Example.com
+intitle:"Azure" site:Example.com
+intitle:"Oracle" site:Example.com
+intitle:"MySQL" site:Example.com
+intitle:"PostgreSQL" site:Example.com
+intitle:"MongoDB" site:Example.com
+intitle:"Redis" site:Example.com
+intitle:"Elasticsearch" site:Example.com
+intitle:"OpenStack" site:Example.com
+intitle:"VMware" site:Example.com
+intitle:"vSphere" site:Example.com
+intitle:"Proxmox" site:Example.com
+intitle:"Citrix" site:Example.com
+intitle:"Fortinet" site:Example.com
+intitle:"Palo Alto" site:Example.com
+intitle:"Cisco" site:Example.com
+intitle:"Juniper" site:Example.com
+intitle:"Plesk" site:Example.com
+intitle:"DirectAdmin" site:Example.com
+intitle:"Virtualmin" site:Example.com
+intitle:"Webmin" site:Example.com
+intitle:"ISPConfig" site:Example.com
+intitle:"cPanel" site:Example.com
+intitle:"WHM" site:Example.com
+
+💥 Vulnerable Files (80)
+------------------------------------------------------------
+intitle:"phpinfo()" site:Example.com
+inurl:phpinfo site:Example.com
+ext:php intitle:phpinfo
+inurl:/vendor/ site:Example.com
+intext:"x-powered-by" site:Example.com
+inurl:.git/HEAD site:Example.com
+"Parse error" site:Example.com
+inurl:composer.json site:Example.com
+inurl:.git intitle:"index of/" site:Example.com
+ext:sql site:Example.com
+filetype:sql site:Example.com
+inurl:sitemap.xml site:Example.com
+intext:"sql syntax error" site:Example.com
+intext:"mysql_fetch_array" site:Example.com
+intext:"Warning: include" site:Example.com
+ext:php intitle:"phpinfo"
+ext:phtml site:Example.com
+filetype:txt intext:"password" site:Example.com
+filetype:html intext:"version" site:Example.com
+ext:asp | ext:bak intext:uid intext:pwd
+filetype:php inurl:"webeditor.php"
+filetype:bkf bkf
+filetype:log inurl:password.log
+intext:"Call to undefined function" site:Example.com
+intext:"Fatal error" site:Example.com
+intext:"Parse error" site:Example.com
+intext:"Warning" site:Example.com
+intext:"Notice" site:Example.com
+intext:"Strict Standards" site:Example.com
+intext:"Deprecated" site:Example.com
+filetype:php inurl:test site:Example.com
+filetype:php inurl:debug site:Example.com
+filetype:php inurl:example site:Example.com
+filetype:php inurl:sample site:Example.com
+filetype:asp inurl:test site:Example.com
+filetype:aspx inurl:debug site:Example.com
+filetype:jsp inurl:test site:Example.com
+filetype:jspx inurl:debug site:Example.com
+ext:.old inurl:wp-config site:Example.com
+ext:.bak inurl:wp-config site:Example.com
+ext:.backup inurl:wp-config site:Example.com
+ext:.sql inurl:backup site:Example.com
+ext:.tar inurl:backup site:Example.com
+ext:.zip inurl:backup site:Example.com
+ext:.gz inurl:backup site:Example.com
+ext:.7z inurl:backup site:Example.com
+ext:.rar inurl:backup site:Example.com
+ext:.tgz inurl:backup site:Example.com
+ext:.tar.gz inurl:backup site:Example.com
+filetype:bak site:Example.com
+filetype:tmp site:Example.com
+filetype:old site:Example.com
+filetype:swp site:Example.com
+filetype:swo site:Example.com
+inurl:phpshell site:Example.com
+inurl:webshell site:Example.com
+inurl:backdoor site:Example.com
+inurl:exploit site:Example.com
+inurl:vulnerability site:Example.com
+inurl:poc site:Example.com
+inurl:payload site:Example.com
+
+🔌 API Endpoints & Swagger (80)
+------------------------------------------------------------
+inurl:api/ | inurl:rest/ | inurl:v1/ site:Example.com
+inurl:graphql site:Example.com
+ext:json inurl:api site:Example.com
+intitle:"REST API" site:Example.com
+inurl:swagger | inurl:redoc site:Example.com
+site:*.Example.com (inurl:swagger OR inurl:api-docs)
+site:Example.com (inurl:swagger OR inurl:api-docs) (filetype:json OR filetype:yaml)
+site:Example.com "api/v1" | "api/v2"
+inurl:graphql site:Example.com
+site:Example.com inurl:api
+site:Example.com inurl:/api/v
+inurl:openapi.json site:Example.com
+inurl:/api/v2/ site:Example.com
+inurl:/api/v3/ site:Example.com
+inurl:/api/rest/ site:Example.com
+inurl:swagger.json site:Example.com
+inurl:api.json site:Example.com
+intext:"API_KEY" inurl:/api site:Example.com
+intitle:"API Documentation" site:Example.com
+intitle:"API Reference" site:Example.com
+inurl:openapi.yaml site:Example.com
+inurl:swagger.yaml site:Example.com
+inurl:api-docs.json site:Example.com
+inurl:docs/api site:Example.com
+inurl:documentation/api site:Example.com
+inurl:restapi site:Example.com
+inurl:webapi site:Example.com
+inurl:api_v1 site:Example.com
+inurl:api_v2 site:Example.com
+inurl:rest-api site:Example.com
+inurl:api/rest site:Example.com
+inurl:api/json site:Example.com
+inurl:api/xml site:Example.com
+inurl:api/soap site:Example.com
+inurl:api/graphql site:Example.com
+inurl:api/grpc site:Example.com
+inurl:api/webhook site:Example.com
+inurl:api/stream site:Example.com
+inurl:api/websocket site:Example.com
+inurl:api/socket site:Example.com
+inurl:api/push site:Example.com
+inurl:api/subscribe site:Example.com
+inurl:api/notify site:Example.com
+inurl:api/event site:Example.com
+inurl:api/hook site:Example.com
+inurl:api/callback site:Example.com
+inurl:api/endpoint site:Example.com
+inurl:api/service site:Example.com
+
+🚨 Error & Debug (90)
+------------------------------------------------------------
+intext:"Warning: mysql" site:Example.com
+"mysql_fetch_array()" site:Example.com
+"ORA-01756" site:Example.com
+"PostgreSQL query failed" site:Example.com
+intext:"Stack trace" site:Example.com
+"Fatal error" site:Example.com
+site:Example.com intext:"Exception"
+site:Example.com intext:"Traceback"
+site:Example.com intext:"Fatal error"
+intext:"Syntax error" site:Example.com
+intext:"sql syntax error" site:Example.com
+intext:"SQL Error" site:Example.com
+intext:"Oracle Error" site:Example.com
+intext:"Whoops" inurl:error site:Example.com
+intext:"Connection refused" site:Example.com
+intitle:"Error" inurl:error site:Example.com
+intext:"You have an error in your SQL syntax" site:Example.com
+intext:"Supplied argument is not a valid MySQL" site:Example.com
+intext:"Parse error: parse error" site:Example.com
+intext:"Warning: Division by zero" site:Example.com
+intext:"Cannot modify header information" site:Example.com
+intext:"mysql_query()" site:Example.com
+intext:"mysql_fetch" site:Example.com
+intext:"mysql_error" site:Example.com
+intext:"pg_query" site:Example.com
+intext:"pg_fetch" site:Example.com
+intext:"pg_error" site:Example.com
+intext:"mysqli" site:Example.com
+intext:"pdo" site:Example.com
+intext:"doctrine" site:Example.com
+intext:"hibernate" site:Example.com
+intext:"sqlalchemy" site:Example.com
+intext:"sequelize" site:Example.com
+intext:"prisma" site:Example.com
+intext:"typeorm" site:Example.com
+intext:"mongooseError" site:Example.com
+intext:"firebaseError" site:Example.com
+intext:"404 Not Found" site:Example.com
+intext:"403 Forbidden" site:Example.com
+intext:"401 Unauthorized" site:Example.com
+intext:"500 Internal Server Error" site:Example.com
+intext:"502 Bad Gateway" site:Example.com
+intext:"503 Service Unavailable" site:Example.com
+intext:"Uncaught Exception" site:Example.com
+intext:"Uncaught Error" site:Example.com
+intext:"Undefined index" site:Example.com
+intext:"Undefined variable" site:Example.com
+intext:"Undefined offset" site:Example.com
+intext:"Undefined property" site:Example.com
+intext:"Undefined method" site:Example.com
+intext:"Array to string conversion" site:Example.com
+intext:"Object of class" site:Example.com
+intext:"Call to a member function" site:Example.com
+intext:"Cannot access protected property" site:Example.com
+intext:"Access denied" site:Example.com
+intext:"Permission denied" site:Example.com
+intext:"No such file or directory" site:Example.com
+intext:"File not found" site:Example.com
+intext:"Connection timeout" site:Example.com
+intext:"Connection reset" site:Example.com
+intext:"Connection refused" site:Example.com
+intext:"Syntax Error" site:Example.com
+
+📄 Documents (90)
+------------------------------------------------------------
+filetype:pdf site:Example.com
+filetype:doc | filetype:docx site:Example.com
+filetype:xls | filetype:xlsx site:Example.com
+intext:"confidential" site:Example.com
+intext:"internal use only" site:Example.com
+ext:ppt | ext:pptx site:Example.com
+site:Example.com "employee handbook" filetype:pdf
+site:Example.com filetype:pdf "resume"
+site:Example.com filetype:xlsx "email"
+site:Example.com filetype:pptx "confidential"
+filetype:txt site:Example.com
+filetype:rtf site:Example.com
+filetype:odt site:Example.com
+site:Example.com filetype:xlsx "password"
+site:Example.com filetype:pdf "internal"
+intext:"secret" filetype:pdf site:Example.com
+filetype:eml eml +intext:"Subject"
+filetype:msg msg intext:password
+filetype:mdb mdb
+filetype:pst pst
+site:Example.com filetype:pdf "budget"
+site:Example.com filetype:pdf "contract"
+site:Example.com filetype:pdf "agreement"
+site:Example.com filetype:pdf "proposal"
+site:Example.com filetype:pdf "invoice"
+site:Example.com filetype:pdf "receipt"
+site:Example.com filetype:pdf "report"
+site:Example.com filetype:pdf "summary"
+site:Example.com filetype:pdf "analysis"
+site:Example.com filetype:pdf "presentation"
+site:Example.com filetype:doc "resume"
+site:Example.com filetype:doc "cv"
+site:Example.com filetype:doc "curriculum"
+site:Example.com filetype:docx "resume"
+site:Example.com filetype:docx "cv"
+site:Example.com filetype:xlsx "employee"
+site:Example.com filetype:xlsx "staff"
+site:Example.com filetype:xlsx "contact"
+site:Example.com filetype:xlsx "email"
+site:Example.com filetype:xlsx "phone"
+site:Example.com filetype:xls "password"
+site:Example.com filetype:xls "admin"
+site:Example.com filetype:xls "user"
+site:Example.com filetype:ppt "confidential"
+site:Example.com filetype:ppt "secret"
+site:Example.com filetype:pptx "confidential"
+site:Example.com filetype:pptx "secret"
+filetype:zip site:Example.com
+filetype:tar site:Example.com
+filetype:gz site:Example.com
+filetype:7z site:Example.com
+filetype:rar site:Example.com
+filetype:iso site:Example.com
+filetype:img site:Example.com
+
+🕳️ Code Leaks & Pastebin (90)
+------------------------------------------------------------
+site:pastebin.com "Example.com"
+site:github.com "Example.com" intext:"password"
+site:*.stackexchange.com Example.com password
+site:*.reddit.com Example.com (api OR token OR key)
+site:github.com Example.com "API_KEY"
+site:github.com Example.com "secret"
+site:gist.github.com Example.com
+site:github.com in:file Example.com
+site:gitlab.com Example.com
+site:bitbucket.org Example.com
+site:raw.githubusercontent.com Example.com
+site:pastebin.com Example.com password
+site:0paste.com Example.com
+site:hastebin.com Example.com
+site:sprunge.us Example.com
+site:paste.ubuntu.com Example.com
+site:github.com filetype:yml Example.com
+site:github.com filetype:yaml Example.com
+site:github.com "Example.com" "secret_key"
+site:github.com "Example.com" "api_key"
+site:github.com "Example.com" "password"
+site:github.com "Example.com" "token"
+site:github.com "Example.com" "credential"
+site:github.com "Example.com" "secret"
+site:github.com "Example.com" "auth"
+site:github.com "Example.com" "key"
+site:github.com "Example.com" "oauth"
+site:github.com "Example.com" "ssh"
+site:github.com "Example.com" "private"
+site:github.com "Example.com" "access"
+site:gitlab.com "Example.com" "password"
+site:gitlab.com "Example.com" "token"
+site:gitlab.com "Example.com" "credential"
+site:bitbucket.org "Example.com" "password"
+site:bitbucket.org "Example.com" "token"
+site:gitea.io "Example.com" password
+site:notabug.org "Example.com" password
+site:codeberg.org "Example.com" password
+site:sourcehut.org "Example.com" password
+site:gitea.* "Example.com" password
+
+🔗 Subdomain Takeover (60)
+------------------------------------------------------------
+ext:txt "hosted-at" "github.io" site:Example.com
+inurl:herokuapp.com site:Example.com
+inurl:*.cloudfront.net site:Example.com
+"This user has not yet written a description" site:Example.com
+site:Example.com inurl:s3
+site:s3.amazonaws.com Example.com
+inurl:github.io Example.com
+inurl:azure site:Example.com
+inurl:appspot.com Example.com
+inurl:github.io site:Example.com
+inurl:heroku site:Example.com
+inurl:netlify site:Example.com
+inurl:vercel site:Example.com
+inurl:surge.sh Example.com
+inurl:gh-pages Example.com
+inurl:firebase Example.com
+inurl:webflow Example.com
+inurl:wix.com Example.com
+inurl:weebly Example.com
+inurl:wordpress.com Example.com
+inurl:blogger.com Example.com
+inurl:tumblr.com Example.com
+inurl:squarespace Example.com
+inurl:shopify Example.com
+inurl:jimdo Example.com
+inurl:webs.com Example.com
+inurl:yola Example.com
+inurl:strikingly Example.com
+inurl:unbounce Example.com
+inurl:leadpages Example.com
+inurl:instapage Example.com
+inurl:pagemaker Example.com
+inurl:godaddy Example.com
+inurl:namecheap Example.com
+inurl:hostgator Example.com
+inurl:bluehost Example.com
+inurl:siteground Example.com
+inurl:kinsta Example.com
+inurl:wpengine Example.com
+inurl:flywheel Example.com
+inurl:liquidweb Example.com
+
+☁️ Cloud Storage & Buckets (70)
+------------------------------------------------------------
+site:s3.amazonaws.com "Example.com"
+site:Example.com inurl:s3
+site:Example.com "bucket" filetype:json
+site:storage.googleapis.com Example.com
+inurl:bucket site:Example.com
+site:Example.com inurl:cloudfront
+s3.amazonaws.com Example.com
+site:digitaloceanspaces.com Example.com
+site:blob.core.windows.net Example.com
+site:backblazeb2.com Example.com
+site:wasabisys.com Example.com
+site:linode.com Example.com
+site:vultr.com Example.com
+site:ovh.com Example.com
+site:scaleway.com Example.com
+site:exoscale.com Example.com
+site:upcloud.com Example.com
+site:digitalocean.com Example.com
+site:aws.amazon.com Example.com
+site:cloud.google.com Example.com
+site:azure.microsoft.com Example.com
+site:ibmcloud.com Example.com
+site:oracle.com Example.com
+site:aliyun.com Example.com
+site:tencent.com Example.com
+site:baidu.com Example.com
+inurl:aws Example.com
+inurl:gcp Example.com
+inurl:azure Example.com
+inurl:ibm Example.com
+inurl:oracle Example.com
+
+🏗️ Exposed Dev/Test (70)
+------------------------------------------------------------
+site:Example.com intitle:"index of" dev
+site:Example.com intitle:"index of" staging
+site:Example.com intitle:"index of" test
+site:Example.com inurl:staging
+site:Example.com inurl:dev
+site:Example.com inurl:test
+site:Example.com inurl:localhost
+site:Example.com inurl:sandbox
+site:Example.com inurl:debug
+site:Example.com inurl:console
+site:Example.com inurl:internal
+site:Example.com inurl:example
+site:Example.com inurl:demo
+site:Example.com inurl:sample
+site:Example.com inurl:old
+site:Example.com inurl:legacy
+site:Example.com inurl:beta
+site:Example.com inurl:alpha
+site:Example.com inurl:experimental
+site:Example.com inurl:test-
+site:Example.com inurl:dev-
+site:Example.com inurl:staging-
+site:Example.com inurl:qa-
+site:Example.com inurl:uat-
+site:Example.com inurl:pre-
+
+💼 Social Media & OSINT (60)
+------------------------------------------------------------
+site:linkedin.com/in/ "Example.com"
+site:linkedin.com "Example.com" (CTO OR CEO OR developer)
+site:twitter.com Example.com
+site:facebook.com Example.com
+"@Example.com" site:twitter.com
+site:linkedin.com "Example.com" (engineer OR developer OR admin)
+site:instagram.com Example.com
+site:tiktok.com Example.com
+site:youtube.com Example.com
+site:pinterest.com Example.com
+site:tumblr.com Example.com
+site:medium.com Example.com
+site:dev.to Example.com
+site:hashnode.com Example.com
+site:flickr.com Example.com
+site:meetup.com Example.com
+site:eventbrite.com Example.com
+
+🖥️ Exposed cPanel & WHM (70)
+------------------------------------------------------------
+intitle:"cPanel" site:Example.com
+intitle:"WebHost Manager" site:Example.com
+intitle:"WHM" site:Example.com
+intitle:"cPanel - WebHosting Control Panel" site:Example.com
+inurl:cpanel site:Example.com
+inurl:whm site:Example.com
+inurl:/cpanel/ site:Example.com
+inurl:/whm/ site:Example.com
+inurl:2083 site:Example.com
+inurl:2086 site:Example.com
+inurl:2087 site:Example.com
+inurl:2095 site:Example.com
+inurl:2096 site:Example.com
+inurl:cpanel.Example.com
+inurl:whm.Example.com
+inurl:webmail.Example.com
+inurl:mail.Example.com
+inurl:autodiscover.Example.com
+intitle:"cPanel Login" site:Example.com
+intitle:"WebHost Manager Login" site:Example.com
+intitle:"WHM Login" site:Example.com
+intitle:"Webmail" site:Example.com
+intitle:"Roundcube" site:Example.com
+intitle:"SquirrelMail" site:Example.com
+intitle:"Horde" site:Example.com
+intitle:"RoundCube Webmail" site:Example.com
+"powered by cPanel" site:Example.com
+"Powered by WHM" site:Example.com
+"cPanel & WHM" site:Example.com
+intext:"cPanel" intext:"login" site:Example.com
+intext:"WHM" intext:"login" site:Example.com
+site:Example.com inurl:cpanel/json-api
+site:Example.com inurl:whostmgr/json-api
+site:Example.com inurl:cpanel/api
+site:Example.com inurl:whm/api
+site:Example.com inurl:xmlapi.cgi
+site:Example.com inurl:json-api
+site:Example.com inurl:reseller
+site:Example.com inurl:addon_domain
+site:Example.com inurl:parked_domain
+site:Example.com inurl:forwarder
+site:Example.com inurl:mail_forwarder
+site:Example.com inurl:list_forwards
+site:Example.com inurl:email_forwarder
+site:Example.com filetype:json cPanel
+site:Example.com filetype:json WHM
+"cPanel" "version" site:Example.com
+"WHM" "version" site:Example.com
+intitle:"cPanel" "Apache" site:Example.com
+intitle:"WHM" "Server Status" site:Example.com
+
+═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Total Dorks: 716                             /        
+                                             /     Disclaimer:``!! These commands are provided strictly for educational and lawful purposes. Any misuse, illegal exploitation, or activities that violate applicable laws, is strictly prohibited. The author assumes no responsibility for unethical or unlawful use. Users are solely accountable for ensuring compliance with all legal and ethical standards.
+For authorized security testing only.        /
+═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
